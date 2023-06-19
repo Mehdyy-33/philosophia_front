@@ -1,0 +1,41 @@
+<h1>Mouvements</h1>
+
+<!-- Add Mouvement Form -->
+<div>
+  <h3>Add Mouvement</h3>
+  <form (ngSubmit)="addMouvement(nameInput.value, descriptionInput.value, thinkerIdInput.value)">
+    <div>
+      <label for="nameInput">Name:</label>
+      <input type="text" id="nameInput" #nameInput required>
+    </div>
+    <div>
+      <label for="descriptionInput">Description:</label>
+      <textarea id="descriptionInput" #descriptionInput required></textarea>
+    </div>
+    <div>
+      <label for="thinkerIdInput">Thinker:</label>
+      <select id="thinkerIdInput" #thinkerIdInput required>
+        <option *ngFor="let thinker of thinkers" [value]="thinker.id">{{ thinker.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Add</button>
+  </form>
+</div>
+
+<!-- Mouvement List -->
+<div>
+  <h3>Mouvement List</h3>
+  <ul>
+    <li *ngFor="let mouvement of mouvements">
+      <div>
+        <strong>Name:</strong> {{ mouvement.name }}
+      </div>
+      <div>
+        <strong>Description:</strong> {{ mouvement.description }}
+      </div>
+      <div>
+        <strong>Thinker:</strong> {{ mouvement.thinker.name }}
+      </div>
+    </li>
+  </ul>
+</div>

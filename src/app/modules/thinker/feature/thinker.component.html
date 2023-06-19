@@ -1,0 +1,28 @@
+<h2>Thinker List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Biography</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let thinker of thinkers">
+      <td>{{ thinker.name }}</td>
+      <td>{{ thinker.biography }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Create Thinker</h2>
+
+<form (ngSubmit)="createThinker()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="thinker.name">
+
+  <label for="biography">Biography:</label>
+  <textarea id="biography" name="biography" [(ngModel)]="thinker.biography"></textarea>
+
+  <button type="submit">Create Thinker</button>
+</form>
